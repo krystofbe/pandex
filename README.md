@@ -4,34 +4,34 @@ Pandex is a lightweight Elixir wrapper for [Pandoc](http://pandoc.org). Pandex h
 
 Pandex enables you to perform any combination of the conversions below:
 
-|Convert From (any)| Convert To (any)   |
-|:-----------------|:-------------------|
-|markdown          | json               |
-|markdown_github   | html               |
-|markdown_strict   | html5              |
-|markdown_mmd      | s5                 |
-|commonmark        | slidy              |
-|json              | dzslides           |
-|rst               | docbook            |
-|textile           | man                |
-|html              | opendocument       |
-|latex             | latex              |
-|markdown_phpextra | beamer             |
-|                  | context            |
-|                  | texinfo            |
-|                  | markdown           |
-|                  | markdown_github    |
-|                  | markdown_strict    |
-|                  | markdown_mmd       |
-|                  | markdown_phpextra  |
-|                  | commonmark         |
-|                  | plain              |
-|                  | rst                |
-|                  | mediawiki          |
-|                  | textile            |
-|                  | rtf                |
-|                  | org                |
-|                  | asciidoc           |
+| Convert From (any) | Convert To (any)  |
+| :----------------- | :---------------- |
+| markdown           | json              |
+| markdown_github    | html              |
+| markdown_strict    | html5             |
+| markdown_mmd       | s5                |
+| commonmark         | slidy             |
+| json               | dzslides          |
+| rst                | docbook           |
+| textile            | man               |
+| html               | opendocument      |
+| latex              | latex             |
+| markdown_phpextra  | beamer            |
+|                    | context           |
+|                    | texinfo           |
+|                    | markdown          |
+|                    | markdown_github   |
+|                    | markdown_strict   |
+|                    | markdown_mmd      |
+|                    | markdown_phpextra |
+|                    | commonmark        |
+|                    | plain             |
+|                    | rst               |
+|                    | mediawiki         |
+|                    | textile           |
+|                    | rtf               |
+|                    | org               |
+|                    | asciidoc          |
 
 # Installation
 
@@ -39,29 +39,29 @@ Pandex enables you to perform any combination of the conversions below:
 
 2. Add Pandex to `mix.exs` as follows:
 
-    ```elixir
-    defmodule YourApp.Mixfile do
-      defp deps do
-        [
-          {:pandex, "~> 0.1.1"}
-        ]
-      end
-    end
-    ```
+   ```elixir
+   defmodule YourApp.Mixfile do
+     defp deps do
+       [
+         {:pandex, "~> 0.1.1"}
+       ]
+     end
+   end
+   ```
 
 3. Run `mix deps.get` to install `Pandex`.
 
 4. Add `Pandex` your application block in `mix.exs`
 
-    ```elixir
-    defmodule YourApp.Mixfile do
-      use Mix.Project
+   ```elixir
+   defmodule YourApp.Mixfile do
+     use Mix.Project
 
-      def application do
-        [applications: [:logger, :pandex]]
-      end
-    end
-    ```
+     def application do
+       [applications: [:logger, :pandex]]
+     end
+   end
+   ```
 
 # Usage
 
@@ -69,7 +69,7 @@ Pandex follows the syntax of `<format from>_to_<format to> <string>`
 
 ## Examples
 
-``` elixir
+```elixir
 iex> Pandex.markdown_to_html "# Title \n\n## List\n\n- one\n- two\n- three\n"
 {:ok, "<h1 id=\"title\">Title</h1>\n<h2 id=\"list\">List</h2>\n<ul>\n<li>one</li>\n<li>two</li>\n<li>three</li>\n</ul>\n"}
 
@@ -95,7 +95,7 @@ iex> Pandex.markdown_to_rst "# Title \n\n## List\n\n- one\n- two\n- three\n"
 {:ok, "Title\n=====\n\nList\n----\n\n-  one\n-  two\n-  three\n"}
 
 iex> Pandex.markdown_to_rtf "# Title \n\n## List\n\n- one\n- two\n- three\n"
-{:ok, "{\\pard \\ql \\f0 \\sa180 \\li0 \\fi0 \\b \\fs36 Title\\par}\n{\\pard \\ql \\f0 \\sa180 \\li0 \\fi0 \\b \\fs32 List\\par}\n{\\pard \\ql \\f0 \\sa0 \\li360 \\fi-360 \\bullet \\tx360\\tab one\\par}\n{\\pard \\ql \\f0 \\sa0 \\li360 \\fi-360 \\bullet \\tx360\\tab two\\par}\n{\\pard \\ql \\f0 \\sa0 \\li360 \\fi-360 \\bullet \\tx360\\tab three\\sa180\\par}\n"}
+{:ok, "{\\pard \\ql \\f0 \\sa180 \\li0 \\fi0 \\b \\fs36 Title\\par}\n{\\pard \\ql \\f0 \\sa180 \\li0 \\fi0 \\b \\fs32 List\\par}\n{\\pard \\ql \\f0 \\sa0 \\li360 \\fi-360 \\bullet \\tx360\\tab one\\par}\n{\\pard \\ql \\f0 \\sa0 \\li360 \\fi-360 \\bullet \\tx360\\tab two\\par}\n{\\pard \\ql \\f0 \\sa0 \\li360 \\fi-360 \\bullet \\tx360\\tab three\\sa180\\par}\n\n"}
 
 iex> Pandex.markdown_to_opendocument "# Title \n\n## List\n\n- one\n- two\n- three\n"
 {:ok, "<text:h text:style-name=\"Heading_20_1\" text:outline-level=\"1\">Title</text:h>\n<text:h text:style-name=\"Heading_20_2\" text:outline-level=\"2\">List</text:h>\n<text:list text:style-name=\"L1\">\n  <text:list-item>\n    <text:p text:style-name=\"P1\">one</text:p>\n  </text:list-item>\n  <text:list-item>\n    <text:p text:style-name=\"P1\">two</text:p>\n  </text:list-item>\n  <text:list-item>\n    <text:p text:style-name=\"P1\">three</text:p>\n  </text:list-item>\n</text:list>\n"}
@@ -104,10 +104,10 @@ iex> Pandex.commonmark_to_textile "# Title \n\n## List\n\n- one\n- two\n- three\
 {:ok, "h1. Title\n\nh2. List\n\n* one\n* two\n* three\n\n"}
 
 iex> Pandex.textile_to_markdown_github "h1. Title\n\nh2. List\n\n* one\n* two\n* three\n\n"
-{:ok, "Title\n=====\n\nList\n----\n\n-   one\n-   two\n-   three\n\n"}
+{:ok, "Title\n=====\n\nList\n----\n\n-   one\n-   two\n-   three\n"}
 
 iex> Pandex.textile_to_markdown_phpextra "h1. Title\n\nh2. List\n\n* one\n* two\n* three\n\n"
-{:ok, "Title {#title}\n=====\n\nList {#list}\n----\n\n-   one\n-   two\n-   three\n\n"}
+{:ok, "Title {#title}\n=====\n\nList {#list}\n----\n\n-   one\n-   two\n-   three\n"}
 
 iex> Pandex.textile_to_html5 "h1. Title\n\nh2. List\n\n* one\n* two\n* three\n\n"
 {:ok, "<h1 id=\"title\">Title</h1>\n<h2 id=\"list\">List</h2>\n<ul>\n<li>one</li>\n<li>two</li>\n<li>three</li>\n</ul>\n"}
@@ -119,7 +119,7 @@ iex> Pandex.textile_to_opendocument "h1. Title\n\nh2. List\n\n* one\n* two\n* th
 
 ## Using with your app
 
-``` elixir
+```elixir
 defmodule YourApp do
   import Pandex
 
@@ -131,7 +131,8 @@ end
 ```
 
 You can also give a file as an input. The output will however be a string.
-``` elixir
+
+```elixir
 defmodule YourApp do
   import Pandex
 
